@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela de Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url('https://i.pinimg.com/originals/5a/d4/7a/5ad47aae12355d55c86bcb408d88ba08.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+    }
+
+    .login {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      text-align: center;
+      border: 2px solid #007BFF;
+      width: 100%;
+      max-width: 400px;
+      margin: 20px;
+    }
+
+    .login h2 {
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+
+    .login label {
+      display: block;
+      margin-bottom: 5px;
+      text-align: left;
+      color: #333;
+    }
+
+    .login input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    .login button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .login button:hover {
+      background-color: #0056b3;
+    }
+
+    #message {
+      color: red;
+      margin-top: 10px;
+    }
+
+    .cadastre-se {
+      margin-top: 20px;
+      color: #007BFF;
+    }
+
+    .cadastre-se a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .cadastre-se a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <h2>Login</h2>
+    <form id="login-form">
+      <label for="username">Usuário</label>
+      <input type="text" id="username" required>
+      <label for="password">Senha</label>
+      <input type="password" id="password" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <p id="message"></p>
+    <p class="cadastre-se">Não tem uma conta? <a href="register.html">Cadastre-se aqui</a></p>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const message = document.getElementById('message');
+
+      if (username === 'admin' && password === 'admin') {
+        message.style.color = 'green';
+        message.textContent = 'Login bem realizado';
+      } else {
+        message.style.color = 'red';
+        message.textContent = 'Usuário ou senha incorretos.';
+      }
+    });
+  </script>
+</body>
+</html>
